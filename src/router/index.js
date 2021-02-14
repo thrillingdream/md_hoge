@@ -15,7 +15,8 @@ export default new Router({
     {
       path: '/',
       name: 'ViewMd',
-      component: ViewMd
+      component: ViewMd,
+      // meta: { title: 'ページタイトル', desc: 'ディスクリプションを記述' }
     },
   ]
 })

@@ -12,8 +12,37 @@
 
   export default {
       name: 'App',
-      components: {Header, Footer}
-  }
+      components: {Header, Footer},
+      //タイトル系のスクリプト
+      methods : {
+        createTitleDesc : function(routeInstance){
+            // タイトルを設定
+            if(routeInstance.meta.title){
+                var setTitle = routeInstance.meta.title + ' | 旅の途中とバンドマン';
+                document.title = setTitle;
+            } else {
+                document.title = '旅の途中とバンドマン'
+            }
+
+            // メタタグdescription設定
+            if(routeInstance.meta.desc){
+                var setDesc = routeInstance.meta.desc + ' | 旅の途中とバンドマン';
+                document.querySelector("meta[name='description']").setAttribute('content', setDesc)
+            } else {
+                document.querySelector("meta[name='description']").setAttribute('content', 'description is not set')
+            }
+        } 
+      },
+      mounted : function(){
+          var routeInstance = this.$route;
+          this.createTitleDesc(routeInstance);
+      },
+      watch: { 
+          '$route' (routeInstance, from) {
+              this.createTitleDesc(routeInstance);
+          }
+      }
+}
 </script>
 
 <style>
