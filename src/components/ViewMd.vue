@@ -1,6 +1,6 @@
 <template>
-  <div v-html="markedContent">
-  </div>
+  <body><h1><div v-html="markedContent">
+  </div></h1></body>
 </template>
 
 <script>
@@ -18,3 +18,24 @@
     },
   };
 </script>
+
+
+<style scoped>
+
+  h1 {
+    text-align:left;
+    color: #DDDDDD;
+    text-decoration: none;
+    margin: auto;
+    font-size: 10px;
+  }
+  body {
+    height: 1980px;
+  }
+  div  {
+     margin : 30px ;
+     padding : 20px ;
+     border : 2px solid #DDDDDD ;
+     background-color : #222222;
+}
+</style>
