@@ -5,7 +5,7 @@
 
 <script>
   import marked from 'marked';
-  import markDownSource from '../assets/ブログを始めました.md';
+  import markDownSource from '../assets/JAIST社会人コース合格体験記.md';
 
   export default {
     computed: {

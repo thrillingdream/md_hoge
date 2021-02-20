@@ -1,9 +1,9 @@
 <template>
     <header>
         <!-- <h1><a href="/">ブログ</a></h1> -->
-        <h1><a href="/"><img src="../assets/blog_name.png" title="title" width="20%" height="10%"></a></h1> 
+        <h1><a href="/"><img src="../assets/blog_name.png" title="title" width="200px"></a></h1> 
         <div id="form">
-            <!-- ここは検索欄がはいる -->
+        <!-- ここは検索欄がはいる -->
         </div>
     </header>
 </template>
@@ -18,7 +18,7 @@
     header {
         background-color: #121212;
         color: #fff;
-        height: 35px;
+        height: 50px;
         display: grid;
         grid-template-columns: 20px 1fr 20px;
         grid-template-rows: 1fr;
@@ -31,11 +31,11 @@
     }
 
     h1 {
-        justify-self: start;
-        align-self: center;
-        font-weight: normal;
-        text-align:left;
-        vertical-align: text-bottom;
+        /* position: fixed; */
+        height: 25px;
+        background-color: #121212;
+        top: 15px;
+        left: 10px;
     }
 
     h1 > a {

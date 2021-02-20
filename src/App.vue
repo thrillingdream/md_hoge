@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header/>
-    <router-view/>
+    <transition mode=”out-in”>
+    <router-view />
+    </transition>
     <Footer/>
   </div>
 </template>
@@ -46,41 +48,46 @@
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #ffffffd8;
-    background-color: #000000;
-  }
-  * {
-      margin: 0px;
-      padding: 0px;
-  }
-  body {
-      font-family: fot-tsukuardgothic-std, sans-serif;
-      line-height: 1.5;
-      font-size: 14px;
-  }
+    #app {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #ffffffd8;
+        background-color: #000000;
+    }
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    body {
+        font-family: fot-tsukuardgothic-std, sans-serif;
+        line-height: 1.5;
+        font-size: 14px;
+    }
 
-  .container {
-      width: 100%;
-      padding: 0 20px;
-      box-sizing: border-box;
-  }
+    .container {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .v-enter-active, .v-leave-active {
+    transition: opacity .5s;
+    }
+    .v-enter, .v-leave-to {
+    opacity: 0;
+    }
+    @media (min-width: 768px) {
+        .container {
+            width: 700px;
+            padding: 0;
+            margin: 0 auto;
+        }
+    }
 
-  @media (min-width: 768px) {
-      .container {
-          width: 700px;
-          padding: 0;
-          margin: 0 auto;
-      }
-  }
-
-  @media (min-width: 1024px) {
-      .container {
-          width: 980px;
-      }
-  }
+    @media (min-width: 1024px) {
+        .container {
+            width: 980px;
+        }
+    }
 </style>
