@@ -1,62 +1,37 @@
 <template>
     <body>
       <p class="blink"><Marquee>社会人やりながら大学院生やりながらバンドマンをやっている男のブログです（爆死）ゆっくりしていってね！</Marquee></p>
-      <div><router-link to="/blog_1"><h1 v-html="markedContentHead1"></h1>
-      <h2 v-html="markedContentDate1"></h2>
+      <h4>記事一覧</h4>
+      <div><router-link to='blog/0'><h1 v-html="ContentTitle(0)"></h1>
+      <h2 v-html="ContentDate(0)"></h2>
       <h3>xvide○sから逃れるためにブログを開設した話</h3></router-link></div>
-      <div><router-link to="/blog_2"><h1 v-html="markedContentHead2"></h1>
-      <h2 v-html="markedContentDate2"></h2>
+      <div><router-link to='blog/1'><h1 v-html="ContentTitle(1)"></h1>
+      <h2 v-html="ContentDate(1)"></h2>
       <h3>JAIST社会人コースに合格した話</h3></router-link></div>
     </body>
 </template>
 
 <script>
-  import marked from 'marked';
-  import markDownSource1 from '../assets/ブログを始めました.md';
-  import markDownSource2 from '../assets/JAIST社会人コース合格体験記.md';
-
+  import ViewMd from './ViewMd.js'
   export default {
-    computed: {
-      source1 () {
-        return markDownSource1;
+    compornents: {
+        ViewMd
+    },
+    methods: {
+      ContentTitle(num) {
+        console.log(ViewMd.markedContentFromNum(num, 'Title'));
+        return ViewMd.markedContentFromNum(num, 'Title');
       },
-      head1 () {
-        var str = markDownSource1;
-        return str.split(/\r\n|\r|\n/)[0];
+      ContentDate(num) {
+        console.log(ViewMd.markedContentFromNum(num, 'Date'));
+        return ViewMd.markedContentFromNum(num, 'Date');
       },
-    　date1 () {
-        var str = markDownSource1;
-        return str.split(/\r\n|\r|\n/)[1];
+      ContentNum() {
+        return ViewMd.getBlogTotal;
       },
-      markedContent1 () {
-        return marked(this.source1);
-      },
-      markedContentHead1 () {
-        return marked(this.head1);
-      },
-      markedContentDate1 () {
-        return marked(this.date1);
-      },
-            source1 () {
-        return markDownSource1;
-      },
-      head2 () {
-        var str = markDownSource2;
-        return str.split(/\r\n|\r|\n/)[0];
-      },
-    　date2 () {
-        var str = markDownSource2;
-        return str.split(/\r\n|\r|\n/)[1];
-      },
-      markedContent2 () {
-        return marked(this.source2);
-      },
-      markedContentHead2 () {
-        return marked(this.head2);
-      },
-      markedContentDate2 () {
-        return marked(this.date2);
-      },
+      GetBlogPath(num_str) {
+        return  'blog/'+ num_str;
+      }
     },
   };
 </script>
@@ -79,8 +54,9 @@
         font-size: 11px;
     }
     h4 {
+        margin : 15px 30px 5px 30px ;
         text-align:left;
-        font-size: 8px;
+        font-size: 15px;
     }
     body {
         height: 1980px;

@@ -18,7 +18,7 @@
     header {
         background-color: #121212;
         color: #fff;
-        height: 50px;
+        height: 30px;
         display: grid;
         grid-template-columns: 20px 1fr 20px;
         grid-template-rows: 1fr;

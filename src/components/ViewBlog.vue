@@ -1,22 +1,26 @@
 <template>
-  <body><h1><div v-html="markedContent">
-  </div></h1></body>
+  <body>
+    <a><router-link :to="{ name: 'Menu' }"> back </router-link></a>
+    <h1><div v-html="Content(id)"></div></h1>
+  </body>
 </template>
 
 <script>
-  import marked from 'marked';
-  import markDownSource from '../assets/ブログを始めました.md';
+  import ViewMd from './ViewMd.js'
 
   export default {
-    computed: {
-      source () {
-        return markDownSource;
-      },
-      markedContent () {
-        return marked(this.source);
+    props: {
+      id: Number
+    },
+    components: {
+        ViewMd
+    },
+    methods: {
+      Content:function(num) {
+        return ViewMd.markedContentFromNum(num,'All');
       },
     },
-  };
+  }
 </script>
 
 
