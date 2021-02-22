@@ -8,7 +8,7 @@ import VueGtag from "vue-gtag"
 Vue.config.productionTip = false
 
 Vue.use(VueGtag, {
-  config: { id: "G-DQXF10PCT2" }
+  config: { id: "UA-190379388-2" }
 });
 
 /* eslint-disable no-new */
