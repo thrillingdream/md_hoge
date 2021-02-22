@@ -1,7 +1,6 @@
 import marked from 'marked';
 import blog0 from '../assets/ブログを始めました.md';
 import blog1 from '../assets/JAIST社会人コース合格体験記.md';
-import bourbon from '../assets/バーボンハウス.md';
 
 function getBlogTotal() {
   return 2;
@@ -11,7 +10,7 @@ function markedContentFromNum(num, mode) {
 
     data = mdContentFromNum(num);
     
-    if(data == null)return this.markedContentAll(bourbon);
+    if(data == null)return '記事が見つかりません';
 
     if(mode == 'All')   return this.markedContentAll(data);
     if(mode == 'Title') return this.markedContentTitle(data);
