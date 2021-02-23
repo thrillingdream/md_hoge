@@ -8,7 +8,12 @@ import VueGtag from "vue-gtag"
 Vue.config.productionTip = false
 
 Vue.use(VueGtag, {
-  config: { id: "UA-190379388-2" }
+  config: {
+    id: "UA-190379388-1",
+    params: {
+      send_page_view: false
+    }
+  }
 });
 
 /* eslint-disable no-new */
